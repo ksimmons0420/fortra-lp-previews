@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fortra Life — Landing Page Previews | Chamber Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#0F0F0F;
+    --panel:#1A1A1A;
+    --ink:#FFFFFF;
+    --muted:rgba(255,255,255,.62);
+    --border:rgba(255,255,255,.14);
+    --gold:#FFB22E;
+    --gold-deep:#ED9702;
+    --good:#BAE86C;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Public Sans',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 20px 80px;
+  }
+  .wrap { max-width:940px; margin:0 auto; }
+
+  .eyebrow {
+    font-family:'Barlow',sans-serif; font-weight:700;
+    font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:10px;
+  }
+  h1 {
+    font-family:'Barlow',sans-serif; font-weight:800;
+    text-transform:uppercase; letter-spacing:-.01em;
+    font-size:clamp(28px,5vw,44px); line-height:1.05;
+  }
+  .lede {
+    color:var(--muted); font-size:15px; max-width:640px; margin-top:14px;
+  }
+  .rule {
+    height:3px; width:60px; background:var(--gold);
+    margin:26px 0 34px;
+  }
+
+  .grid { display:grid; grid-template-columns:1fr; gap:16px; }
+  @media (min-width:720px) {
+    .grid { grid-template-columns:1fr 1fr; }
+  }
+
+  .card {
+    background:var(--panel); border:1px solid var(--border);
+    padding:22px 24px; display:flex; flex-direction:column; gap:10px;
+  }
+  .card.live { border-color:var(--gold); }
+
+  .tag {
+    align-self:flex-start;
+    font-family:'Barlow',sans-serif; font-weight:700;
+    font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+    padding:4px 10px; border-radius:999px;
+  }
+  .tag.live { background:var(--gold); color:#0F0F0F; }
+  .tag.next { background:transparent; color:var(--muted); border:1px solid var(--border); }
+
+  .card h2 {
+    font-family:'Barlow',sans-serif; font-weight:800;
+    text-transform:uppercase; font-size:17px; letter-spacing:.01em;
+  }
+  .persona { font-size:12.5px; color:var(--gold-deep); font-weight:600; }
+  .card p { font-size:13.5px; color:var(--muted); }
+
+  .btn {
+    align-self:flex-start; margin-top:6px;
+    font-family:'Barlow',sans-serif; font-weight:800;
+    text-transform:uppercase; letter-spacing:.08em; font-size:12.5px;
+    background:var(--gold); color:#0F0F0F; text-decoration:none;
+    padding:11px 20px;
+  }
+  .btn:hover { background:var(--gold-deep); }
+
+  .note {
+    margin-top:34px; padding:16px 20px;
+    background:var(--panel); border-left:4px solid var(--good);
+    font-size:13px; color:var(--muted);
+  }
+  .note b { color:var(--ink); }
+
+  footer {
+    margin-top:44px; padding-top:18px; border-top:1px solid var(--border);
+    font-family:'Barlow',sans-serif; font-weight:600;
+    text-transform:uppercase; letter-spacing:.14em;
+    font-size:10.5px; color:var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Fortra Life &nbsp;&middot;&nbsp; Prepared by Chamber Media</div>
+  <h1>Landing Page Previews</h1>
+  <p class="lede">Conversion-focused pages built for Fortra One Complete. Each page targets one audience persona with its own hook, problem framing, and proof — all on the same tested page structure.</p>
+  <div class="rule"></div>
+
+  <div class="grid">
+
+    <div class="card live">
+      <span class="tag live">Live preview</span>
+      <div class="persona">Persona 1 &mdash; The Muscle-Protector</div>
+      <h2>Protect Your Muscle</h2>
+      <p>Built and ready to deploy. Leads with the muscle-loss problem, puts the offer above the gallery on mobile, and routes straight to Subscribe &amp; Save checkout.</p>
+      <a class="btn" href="./one-complete/">View the page</a>
+    </div>
+
+    <div class="card">
+      <span class="tag next">Next up</span>
+      <div class="persona">Persona 2 &mdash; The Depleted</div>
+      <h2>Get Your Energy Back</h2>
+      <p>Energy and under-eating angle for the busy woman 45&ndash;60. Briefed and ready to build off the same base page.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag next">Next up</span>
+      <div class="persona">Persona 3 &mdash; The Sensitive System</div>
+      <h2>Gentle, Allergen-Free Nutrition</h2>
+      <p>Gut-comfort and allergen-free angle. Briefed and ready to build off the same base page.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag next">Next up</span>
+      <div class="persona">Persona 4 &mdash; The Researcher</div>
+      <h2>Physician-Formulated, Clinically Dosed</h2>
+      <p>Proof-first angle built on the physician credential and clinical dosing. Briefed and ready to build off the same base page.</p>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <b>Note on the live preview:</b> this is a working page, not a mockup &mdash; the flavor picker, the Subscribe &amp; Save toggle, and the Add to Cart button all connect to the real Fortra store. Best viewed on a phone, since that is where most of the traffic lands.
+  </div>
+
+  <footer>Fortra Life &nbsp;&middot;&nbsp; Landing Page Previews &nbsp;&middot;&nbsp; Chamber Media</footer>
+
+</div>
+</body>
+</html>
