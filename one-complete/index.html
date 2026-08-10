@@ -1,12 +1,39 @@
 <title>Fortra One Complete — Protect Your Muscle</title>
 <meta name="robots" content="noindex">
 <!--
-  FORTRA ONE COMPLETE LP - VERSION 2026-06-24 - build v3 (BRAND PASS to guidelines v1.5 + further Gruns feel: real brand webfonts PP Object Sans [headlines] + Founders Grotesk [body] from Fortra's Shopify CDN, font-synthesis:none; prior serif display font removed; off-brand gold replaced with Soft Oat / Core Red [brand has no metallic]; buttons solid Core Red UPPERCASE [was gradient]; airy Soft Oat hero product panel [was dark box]; per-day price reframe + auto-applied-savings line. Inherits v2.1 hero overflow fix. Compliant GLP-1 nutrition LP, ZERO Rx drug names, FDA + ROSCA disclosures, value-before-gallery fold; primary CTA = hero OFFER CARD (v3.1): de-positioned Subscribe-&-Save vs One-time plan toggle + flavor toggle, single /cart/add submit. Plan toggle disables the selling_plan input for one-time so Shopify adds it correctly; Subscribe keeps selling_plan 2850848967. v3.2 padding fix: section padding made vertical-only (padding-top/bottom) so it never clobbers .fortra-lp__wrap side gutters on combined wrap+layout divs -> physician (doc) + hero now share the same 18px gutter as every section; doc stays 2-col on tablet and stacks+fills only on phones. v2.1 kept at ../v2/ as fallback.
+  FORTRA ONE COMPLETE LP - VERSION 2026-08-10 - build v4 (UX/UI + A11Y PASS on v3.2)
+  v4 CHANGES:
+    * COMPARISON TABLE ICONS FIXED. v3 used Phosphor "seal-check" whose scalloped outline
+      fills solid under nonzero fill-rule, so every "yes" cell rendered as an unreadable
+      wine-coloured blob instead of a check. Swapped to Phosphor "check-circle" duotone
+      (tinted disc @ .2 + ring + crisp check), matching the "x-circle" already used for "no".
+    * Row 1 ("Built for a suppressed appetite") used an em-dash where the other 4 rows used
+      an X. Now a real X, so the column reads consistently.
+    * A11Y: comparison icons were aria-hidden, so screen readers heard the row label then
+      silence for BOTH columns. Now role="img" + aria-label="Yes"/"No".
+    * TAP TARGETS: flavor buttons were 35px tall -> min-height 44px. Footer legal links were
+      21px tall (below WCAG 2.5.8 AA 24px) -> min-height 32px.
+    * INSTRUMENTATION ADDED (self-contained, zero external requests): captures UTM/fbclid/
+      gclid/ttclid, persists for the session, and injects them into every /cart/add form as
+      Shopify cart ATTRIBUTES so they land on the order; also stamps attributes[lp_source].
+      Pushes 6 funnel events to window.dataLayer (lp_pageview, lp_plan_selected,
+      lp_flavor_selected, lp_cta_click, lp_add_to_cart, lp_faq_open). No-ops without GTM.
+  !! OPEN BLOCKER - PRICING NOT CHANGED IN v4, AWAITING FORTRA !!
+    This page states $63/mo and "Save 10%" in 6 places, incl. the ROSCA line "you authorize a
+    recurring charge of $63 every 4 weeks". Live Shopify says otherwise: selling plans
+    2844491975 (every 2 wks) and 2850848967 (every 4 wks) BOTH have price_adjustments:[] and
+    selling_plan_allocations price = $70.00. There is no 10% subscription discount configured,
+    so a subscriber is charged $70, not $63. EITHER Fortra adds the discount to the selling
+    plan in Shopify, OR this copy must be rewritten to $70. DO NOT LAUNCH UNTIL RESOLVED.
+    Separately: the Meta ads point at plan 2844491975 (2-week cadence) while this LP sells
+    2850848967 (4-week cadence). Pick one.
+  ---- v3 history ----
+  VERSION 2026-06-24 - build v3 (BRAND PASS to guidelines v1.5 + further Gruns feel: real brand webfonts PP Object Sans [headlines] + Founders Grotesk [body] from Fortra's Shopify CDN, font-synthesis:none; prior serif display font removed; off-brand gold replaced with Soft Oat / Core Red [brand has no metallic]; buttons solid Core Red UPPERCASE [was gradient]; airy Soft Oat hero product panel [was dark box]; per-day price reframe + auto-applied-savings line. Inherits v2.1 hero overflow fix. Compliant GLP-1 nutrition LP, ZERO Rx drug names, FDA + ROSCA disclosures, value-before-gallery fold; primary CTA = hero OFFER CARD (v3.1): de-positioned Subscribe-&-Save vs One-time plan toggle + flavor toggle, single /cart/add submit. Plan toggle disables the selling_plan input for one-time so Shopify adds it correctly; Subscribe keeps selling_plan 2850848967. v3.2 padding fix: section padding made vertical-only (padding-top/bottom) so it never clobbers .fortra-lp__wrap side gutters on combined wrap+layout divs -> physician (doc) + hero now share the same 18px gutter as every section; doc stays 2-col on tablet and stacks+fills only on phones. v2.1 kept at ../v2/ as fallback.
   Client: Fortra Life (fortralife.com) - Chamber Media engagement.
   Compliance: feedback_fortra-compliance-rules.md enforced. ZERO Rx drug brand names. No outcome claims. FDA + ROSCA disclosures present.
   Ecommerce: every CTA links to the real Shopify buy flow so the Purchase conversion fires. Variants Chocolate 45621265203399 / Vanilla 45621265268935. Subscribe selling_plan 2850848967 (monthly, 10% off).
   Encoding: 0 raw non-ASCII (HTML entities + inline SVG only). Phosphor duotone icons. Self-healing viewport guard.
-  Search this file for "build v1" to confirm the latest paste.
+  Search this file for "build v4" to confirm the latest paste.
 -->
 <meta charset="utf-8">
 <script>/* viewport guard: ensure mobile width even if the host/preview lacks one (idempotent) */
@@ -157,7 +184,7 @@
 .fortra-lp__flavor{display:inline-flex;gap:8px;margin-bottom:18px;background:#FFFFFF;border:1px solid var(--line);padding:5px;border-radius:999px;box-shadow:0 4px 14px rgba(52,2,2,0.06)}
 .fortra-lp__flavor-btn{
   font-family:'PP Object Sans','Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
-  background:transparent;border:none;cursor:pointer;padding:9px 20px;border-radius:999px;
+  background:transparent;border:none;cursor:pointer;padding:9px 20px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;
   transition:background .14s ease,color .14s ease;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
 }
 .fortra-lp__flavor-btn.is-active{background:var(--wine);color:#FCFAF0;box-shadow:0 4px 12px rgba(111,10,7,0.22)}
@@ -404,7 +431,7 @@
 .fortra-lp__foot-disc{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;margin-top:6px;color:#9C857B;max-width:880px}
 .fortra-lp__foot-disc strong{color:#C9B6A6;font-weight:700}
 .fortra-lp__foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 20px}
-.fortra-lp__foot-links a{color:#C9B6A6;text-decoration:none;font-weight:600}
+.fortra-lp__foot-links a{color:#C9B6A6;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;min-height:32px;padding:4px 0}
 .fortra-lp__foot-links a:hover{color:#F3E9DD;text-decoration:underline}
 
 /* hidden subscribe form (posts to Shopify cart) */
@@ -878,28 +905,28 @@
           <tbody>
             <tr>
               <td class="feat">Built for a suppressed appetite</td>
-              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" aria-hidden="true"><g fill="currentColor"><path d="M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128" opacity=".2"/><path d="m173.66 98.34l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 137.69l50.34-50.35a8 8 0 0 1 11.32 11.32M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128"/></g></svg></td>
-              <td class="them">&mdash;</td>
+              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" role="img" aria-label="Yes"><g fill="currentColor"><path d="M232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Z" opacity=".2"/><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></g></svg></td>
+              <td class="them"><svg class="ph no" viewBox="0 0 256 256" role="img" aria-label="No"><path fill="currentColor" d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg></td>
             </tr>
             <tr>
               <td class="feat">Complete daily vitamins + minerals</td>
-              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" aria-hidden="true"><g fill="currentColor"><path d="M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128" opacity=".2"/><path d="m173.66 98.34l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 137.69l50.34-50.35a8 8 0 0 1 11.32 11.32M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128"/></g></svg></td>
-              <td class="them"><svg class="ph no" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M165.66 101.66L139.31 128l26.35 26.34a8 8 0 0 1-11.32 11.32L128 139.31l-26.34 26.35a8 8 0 0 1-11.32-11.32L116.69 128l-26.35-26.34a8 8 0 0 1 11.32-11.32L128 116.69l26.34-26.35a8 8 0 0 1 11.32 11.32M232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104m-16 0a88 88 0 1 0-88 88a88.1 88.1 0 0 0 88-88"/></svg></td>
+              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" role="img" aria-label="Yes"><g fill="currentColor"><path d="M232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Z" opacity=".2"/><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></g></svg></td>
+              <td class="them"><svg class="ph no" viewBox="0 0 256 256" role="img" aria-label="No"><path fill="currentColor" d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg></td>
             </tr>
             <tr>
               <td class="feat">Gut-smart fiber + probiotic</td>
-              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" aria-hidden="true"><g fill="currentColor"><path d="M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128" opacity=".2"/><path d="m173.66 98.34l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 137.69l50.34-50.35a8 8 0 0 1 11.32 11.32M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128"/></g></svg></td>
-              <td class="them"><svg class="ph no" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M165.66 101.66L139.31 128l26.35 26.34a8 8 0 0 1-11.32 11.32L128 139.31l-26.34 26.35a8 8 0 0 1-11.32-11.32L116.69 128l-26.35-26.34a8 8 0 0 1 11.32-11.32L128 116.69l26.34-26.35a8 8 0 0 1 11.32 11.32M232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104m-16 0a88 88 0 1 0-88 88a88.1 88.1 0 0 0 88-88"/></svg></td>
+              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" role="img" aria-label="Yes"><g fill="currentColor"><path d="M232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Z" opacity=".2"/><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></g></svg></td>
+              <td class="them"><svg class="ph no" viewBox="0 0 256 256" role="img" aria-label="No"><path fill="currentColor" d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg></td>
             </tr>
             <tr>
               <td class="feat">Physician-formulated</td>
-              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" aria-hidden="true"><g fill="currentColor"><path d="M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128" opacity=".2"/><path d="m173.66 98.34l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 137.69l50.34-50.35a8 8 0 0 1 11.32 11.32M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128"/></g></svg></td>
-              <td class="them"><svg class="ph no" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M165.66 101.66L139.31 128l26.35 26.34a8 8 0 0 1-11.32 11.32L128 139.31l-26.34 26.35a8 8 0 0 1-11.32-11.32L116.69 128l-26.35-26.34a8 8 0 0 1 11.32-11.32L128 116.69l26.34-26.35a8 8 0 0 1 11.32 11.32M232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104m-16 0a88 88 0 1 0-88 88a88.1 88.1 0 0 0 88-88"/></svg></td>
+              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" role="img" aria-label="Yes"><g fill="currentColor"><path d="M232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Z" opacity=".2"/><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></g></svg></td>
+              <td class="them"><svg class="ph no" viewBox="0 0 256 256" role="img" aria-label="No"><path fill="currentColor" d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg></td>
             </tr>
             <tr>
               <td class="feat">0g added sugar, gentle on the stomach</td>
-              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" aria-hidden="true"><g fill="currentColor"><path d="M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128" opacity=".2"/><path d="m173.66 98.34l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 137.69l50.34-50.35a8 8 0 0 1 11.32 11.32M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128"/></g></svg></td>
-              <td class="them"><svg class="ph no" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M165.66 101.66L139.31 128l26.35 26.34a8 8 0 0 1-11.32 11.32L128 139.31l-26.34 26.35a8 8 0 0 1-11.32-11.32L116.69 128l-26.35-26.34a8 8 0 0 1 11.32-11.32L128 116.69l26.34-26.35a8 8 0 0 1 11.32 11.32M232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104m-16 0a88 88 0 1 0-88 88a88.1 88.1 0 0 0 88-88"/></svg></td>
+              <td class="us"><svg class="ph ph-duo yes" viewBox="0 0 256 256" role="img" aria-label="Yes"><g fill="currentColor"><path d="M232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Z" opacity=".2"/><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></g></svg></td>
+              <td class="them"><svg class="ph no" viewBox="0 0 256 256" role="img" aria-label="No"><path fill="currentColor" d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg></td>
             </tr>
           </tbody>
         </table>
@@ -1107,5 +1134,66 @@
     });
   }
   [1500,3500,7000].forEach(function(t){setTimeout(liftWidgets,t);});
+})();
+</script>
+
+<script>
+/* ---- Fortra LP instrumentation (self-contained; zero external requests) ----
+   1. Captures UTM/click-ID params, persists them for the session, and injects them
+      into every /cart/add form as Shopify cart attributes so they land on the ORDER.
+   2. Pushes funnel events to window.dataLayer. If GTM/GA4 is present on the theme it
+      picks them up automatically; if not, these are harmless no-ops.
+   Remove this whole block if the client does not want it. Nothing else depends on it. */
+(function(){
+  var KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
+  var STORE='fortra_lp_attr';
+  function read(){
+    var q=new URLSearchParams(location.search), got={}, any=false;
+    KEYS.forEach(function(k){ var v=q.get(k); if(v){ got[k]=v; any=true; } });
+    if(any){ try{ sessionStorage.setItem(STORE, JSON.stringify(got)); }catch(e){} return got; }
+    try{ return JSON.parse(sessionStorage.getItem(STORE)||'{}'); }catch(e){ return {}; }
+  }
+  var attrs=read();
+  var forms=[].slice.call(document.querySelectorAll('form[action*="/cart/add"]'));
+  forms.forEach(function(f){
+    function put(name,val){
+      if(!val) return;
+      if(f.querySelector('input[name="attributes['+name+']"]')) return;
+      var i=document.createElement('input');
+      i.type='hidden'; i.name='attributes['+name+']'; i.value=val; f.appendChild(i);
+    }
+    Object.keys(attrs).forEach(function(k){ put(k, attrs[k]); });
+    put('lp_source','fortra-one-complete-lp');
+  });
+
+  window.dataLayer=window.dataLayer||[];
+  function push(ev,extra){
+    var o={event:ev,lp:'fortra-one-complete-lp'};
+    if(extra) for(var k in extra) o[k]=extra[k];
+    window.dataLayer.push(o);
+  }
+  push('lp_pageview',{utm_source:attrs.utm_source||'(none)',utm_campaign:attrs.utm_campaign||'(none)'});
+
+  document.addEventListener('click',function(e){
+    var plan=e.target.closest&&e.target.closest('.fortra-lp__plan');
+    if(plan){ push('lp_plan_selected',{plan:plan.getAttribute('data-plan')||''}); return; }
+    var fl=e.target.closest&&e.target.closest('.fortra-lp__flavor-btn');
+    if(fl){ push('lp_flavor_selected',{flavor:(fl.textContent||'').trim()}); return; }
+    var btn=e.target.closest&&e.target.closest('.btn');
+    if(btn){ push('lp_cta_click',{label:(btn.textContent||'').trim().slice(0,60)}); }
+  },true);
+
+  forms.forEach(function(f){
+    f.addEventListener('submit',function(){
+      var id=f.querySelector('input[name="id"]'), sp=f.querySelector('input[name="selling_plan"]');
+      push('lp_add_to_cart',{variant_id:id?id.value:'',selling_plan:(sp&&!sp.disabled)?sp.value:'one-time'});
+    });
+  });
+
+  [].slice.call(document.querySelectorAll('details.fortra-lp__faq')).forEach(function(d){
+    d.addEventListener('toggle',function(){
+      if(d.open){ var q=d.querySelector('summary'); push('lp_faq_open',{question:(q?q.textContent:'').trim().slice(0,80)}); }
+    });
+  });
 })();
 </script>
