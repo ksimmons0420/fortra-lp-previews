@@ -18,6 +18,20 @@
       Shopify cart ATTRIBUTES so they land on the order; also stamps attributes[lp_source].
       Pushes 6 funnel events to window.dataLayer (lp_pageview, lp_plan_selected,
       lp_flavor_selected, lp_cta_click, lp_add_to_cart, lp_faq_open). No-ops without GTM.
+  v4.2 TESTIMONIALS REPLACED WITH REAL ONES - 2026-08-10
+    The three testimonials in v4.1 (Megan R. / David K. / Sandra L., each with 5 stars and a
+    "Verified buyer" badge) were COPYWRITER-INVENTED. They appear nowhere on fortralife.com.
+    Presenting fabricated reviews with a verified-purchase badge is an FTC Endorsement Guides /
+    2024 Consumer Reviews Rule problem, with per-violation civil penalties.
+    FIXED: swapped in three of the 10 REAL published reviews from the Fortra PDP, verbatim -
+    Emily K. 25 (low appetite / protein), Sarah M. 47 (bloating + digestion), Michael S. 48
+    (doctor recommended / convenience). Chosen to match the page's three value props while
+    avoiding the strongest outcome claim in their bank (David R. "gained lean mass in one month").
+    ALSO: removed the 5-star rows entirely - Fortra's site displays NO star ratings anywhere
+    (0 stars, 0 rating widgets), so a 5/5 rating was unsupported. Label changed "Verified buyer"
+    -> "Verified Customer" to match theirs, names now carry ages as theirs do, and their
+    testimonial disclaimer ("Individual results may vary...") is now carried on this page.
+    RULE: never write testimonials. Pull them from the client's own published reviews.
   v4.1 ALIGNED TO THE LIVE PDP - 2026-08-10
     CORRECTION: an earlier v4 note claimed the 10% subscription discount did not exist, based on
     selling_plan_allocations in /products/fortra-one-complete.js showing $70.00 with
@@ -851,48 +865,46 @@
       </div>
       <div class="fortra-lp__tst-grid">
         <div class="fortra-lp__tst-card reveal">
-          <div class="fortra-lp__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>&ldquo;I&rsquo;m on a GLP-1 medication and food just stopped sounding good. One scoop in the morning means I actually get my protein in without forcing down a meal I don&rsquo;t want. It&rsquo;s the easiest part of my day now.&rdquo;</p>
+          <p>&ldquo;My appetite is very low on my weight loss medication, and I was barely getting protein. This made it easy. I feel more alert, more stable, and less run down.&rdquo;</p>
           <div class="fortra-lp__tst-who">
-            <div class="fortra-lp__tst-av">M</div>
+            <div class="fortra-lp__tst-av">E</div>
             <div class="fortra-lp__tst-meta">
-              <strong>Megan R.</strong>
+              <strong>Emily K., 25</strong>
               <span>
                 <svg class="ph ph-duo-b" viewBox="0 0 256 256" aria-hidden="true"><g fill="currentColor"><path d="M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128" opacity=".2"/><path d="m173.66 98.34l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 137.69l50.34-50.35a8 8 0 0 1 11.32 11.32M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128m-16 0c0-6.61-9.78-13.46-13.18-21.66c-3.27-7.92-1.05-19.73-7.1-25.78s-17.85-3.84-25.78-7.1C161.46 69.78 134.61 60 128 60s-13.46 9.78-21.66 13.18c-7.92 3.27-19.73 1.05-25.78 7.1s-3.84 17.85-7.1 25.78C69.78 114.54 60 121.39 60 128s9.78 13.46 13.18 21.66c3.27 7.92 1.05 19.73 7.1 25.78s17.85 3.84 25.78 7.1C114.54 186.22 121.39 196 128 196s13.46-9.78 21.66-13.18c7.92-3.27 19.73-1.05 25.78-7.1s3.84-17.85 7.1-25.78C186.22 141.46 196 134.61 196 128"/></g></svg>
-                Verified buyer
+                Verified Customer
               </span>
             </div>
           </div>
         </div>
         <div class="fortra-lp__tst-card reveal">
-          <div class="fortra-lp__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>&ldquo;My stomach can be sensitive on the medication, and a lot of shakes were rough. This one is smooth, mixes in water, and actually sits well. The chocolate is genuinely good &mdash; not chalky.&rdquo;</p>
-          <div class="fortra-lp__tst-who">
-            <div class="fortra-lp__tst-av">D</div>
-            <div class="fortra-lp__tst-meta">
-              <strong>David K.</strong>
-              <span>
-                <svg class="ph ph-duo-b" viewBox="0 0 256 256" aria-hidden="true"><g fill="currentColor"><path d="M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128" opacity=".2"/><path d="m173.66 98.34l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 137.69l50.34-50.35a8 8 0 0 1 11.32 11.32M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128m-16 0c0-6.61-9.78-13.46-13.18-21.66c-3.27-7.92-1.05-19.73-7.1-25.78s-17.85-3.84-25.78-7.1C161.46 69.78 134.61 60 128 60s-13.46 9.78-21.66 13.18c-7.92 3.27-19.73 1.05-25.78 7.1s-3.84 17.85-7.1 25.78C69.78 114.54 60 121.39 60 128s9.78 13.46 13.18 21.66c3.27 7.92 1.05 19.73 7.1 25.78s17.85 3.84 25.78 7.1C114.54 186.22 121.39 196 128 196s13.46-9.78 21.66-13.18c7.92-3.27 19.73-1.05 25.78-7.1s3.84-17.85 7.1-25.78C186.22 141.46 196 134.61 196 128"/></g></svg>
-                Verified buyer
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="fortra-lp__tst-card reveal">
-          <div class="fortra-lp__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>&ldquo;What sold me was that a doctor formulated it specifically for people in my situation. I feel better knowing I&rsquo;m covering my protein and vitamins on the days I barely eat. Subscription means I never run out.&rdquo;</p>
+          <p>&ldquo;I&rsquo;m on a GLP-1 medication, for weight loss and was struggling with bloating and constipation. Fortra One Complete made a noticeable difference within weeks. My digestion is more regular, I feel less uncomfortable, and I finally feel like I&rsquo;m nourishing my body instead of just suppressing appetite.&rdquo;</p>
           <div class="fortra-lp__tst-who">
             <div class="fortra-lp__tst-av">S</div>
             <div class="fortra-lp__tst-meta">
-              <strong>Sandra L.</strong>
+              <strong>Sarah M., 47</strong>
               <span>
                 <svg class="ph ph-duo-b" viewBox="0 0 256 256" aria-hidden="true"><g fill="currentColor"><path d="M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128" opacity=".2"/><path d="m173.66 98.34l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 137.69l50.34-50.35a8 8 0 0 1 11.32 11.32M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128m-16 0c0-6.61-9.78-13.46-13.18-21.66c-3.27-7.92-1.05-19.73-7.1-25.78s-17.85-3.84-25.78-7.1C161.46 69.78 134.61 60 128 60s-13.46 9.78-21.66 13.18c-7.92 3.27-19.73 1.05-25.78 7.1s-3.84 17.85-7.1 25.78C69.78 114.54 60 121.39 60 128s9.78 13.46 13.18 21.66c3.27 7.92 1.05 19.73 7.1 25.78s17.85 3.84 25.78 7.1C114.54 186.22 121.39 196 128 196s13.46-9.78 21.66-13.18c7.92-3.27 19.73-1.05 25.78-7.1s3.84-17.85 7.1-25.78C186.22 141.46 196 134.61 196 128"/></g></svg>
-                Verified buyer
+                Verified Customer
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="fortra-lp__tst-card reveal">
+          <p>&ldquo;I skip breakfast most days and don&rsquo;t have time for a full supplement routine. My doctor recommended Fortra One Complete and it solved both problems. One shake and I&rsquo;m set for the morning. It also tastes great.&rdquo;</p>
+          <div class="fortra-lp__tst-who">
+            <div class="fortra-lp__tst-av">M</div>
+            <div class="fortra-lp__tst-meta">
+              <strong>Michael S., 48</strong>
+              <span>
+                <svg class="ph ph-duo-b" viewBox="0 0 256 256" aria-hidden="true"><g fill="currentColor"><path d="M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128" opacity=".2"/><path d="m173.66 98.34l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 137.69l50.34-50.35a8 8 0 0 1 11.32 11.32M232 128c0 12.51-17.82 21.95-22.68 33.69c-4.68 11.32 1.42 30.65-7.78 39.85s-28.53 3.1-39.85 7.78C150 214.18 140.5 232 128 232s-22-17.82-33.69-22.68c-11.32-4.68-30.65 1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82 150 24 140.5 24 128s17.82-22 22.68-33.69c4.68-11.31-1.42-30.65 7.78-39.85s28.54-3.1 39.85-7.78C106.05 41.82 115.5 24 128 24s22 17.82 33.69 22.68c11.32 4.68 30.65-1.42 39.85 7.78s3.1 28.53 7.78 39.85C214.18 106.05 232 115.5 232 128m-16 0c0-6.61-9.78-13.46-13.18-21.66c-3.27-7.92-1.05-19.73-7.1-25.78s-17.85-3.84-25.78-7.1C161.46 69.78 134.61 60 128 60s-13.46 9.78-21.66 13.18c-7.92 3.27-19.73 1.05-25.78 7.1s-3.84 17.85-7.1 25.78C69.78 114.54 60 121.39 60 128s9.78 13.46 13.18 21.66c3.27 7.92 1.05 19.73 7.1 25.78s17.85 3.84 25.78 7.1C114.54 186.22 121.39 196 128 196s13.46-9.78 21.66-13.18c7.92-3.27 19.73-1.05 25.78-7.1s3.84-17.85 7.1-25.78C186.22 141.46 196 134.61 196 128"/></g></svg>
+                Verified Customer
               </span>
             </div>
           </div>
         </div>
       </div>
+      <p style="margin:22px auto 0;max-width:760px;text-align:center;font-size:12.5px;line-height:1.6;color:#7E6A60">Individual results may vary. Testimonials reflect the real experiences of individual customers and are not a guarantee that you will achieve similar results. Outcomes depend on factors such as diet, exercise, medication, and overall health.</p>
     </div>
   </section>
 
