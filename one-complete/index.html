@@ -1116,25 +1116,63 @@
     btns.forEach(function(b){b.addEventListener('click',function(){setVariant(b.getAttribute('data-variant'));});});
   })();
 
-  /* ---- Plan toggle: Subscribe & Save vs One-time -> rewrites the hero form's selling_plan ---- */
+  /* ---- Plan toggle: Subscribe & Save vs One-time ----
+     v4.2 FIX: this used to rewrite ONLY the hero form. The final-CTA form and the mobile sticky
+     bar kept selling_plan set, so a visitor who chose "One-time purchase" and then used either of
+     those CTAs was silently enrolled in a subscription. On mobile that was the LIKELY path -- the
+     sticky bar is on screen from the top while the hero CTA sits below the fold. It now drives
+     EVERY /cart/add form and keeps the sticky + final price displays in sync. ---- */
   (function(){
+    var SUB_PLAN='2844491975';
     var plans=document.querySelectorAll('.fortra-lp__plan');
-    var planInput=document.querySelector('.fortra-lp__offer-form .fortra-lp__plan-input');
-    var label=document.querySelector('.fortra-lp__offer-form .fortra-lp__cta-label');
-    if(!plans.length||!planInput)return;
+    var forms=[].slice.call(document.querySelectorAll('form[action*="/cart/add"]'));
+    if(!plans.length||!forms.length)return;
+
+    /* find each form's button label without destroying sibling SVGs */
+    function labelNode(form){
+      var b=form.querySelector('button[type="submit"]'); if(!b)return null;
+      var span=b.querySelector('.fortra-lp__cta-label'); if(span)return span;
+      for(var i=0;i<b.childNodes.length;i++){
+        var n=b.childNodes[i];
+        if(n.nodeType===3&&n.nodeValue.trim())return n;
+      }
+      return null;
+    }
+    var labels=forms.map(function(f){
+      var n=labelNode(f);
+      return n?{node:n,original:(n.nodeType===3?n.nodeValue:n.textContent)}:null;
+    });
+    function setLabel(rec,val){
+      if(!rec)return;
+      if(rec.node.nodeType===3){rec.node.nodeValue=(val===null?rec.original:val);}
+      else{rec.node.textContent=(val===null?rec.original:val);}
+    }
+
+    var stickyNow=document.querySelector('.fortra-lp-sticky-price .now');
+    var stickySub=document.querySelector('.fortra-lp-sticky-price .sub');
+    var finalNow=document.querySelector('.fortra-lp__price-line .now');
+    var finalUnit=document.querySelector('.fortra-lp__price-line .unit');
+    var finalSave=document.querySelector('.fortra-lp__price-line .save');
+
     function setPlan(plan){
+      var otp=(plan==='otp');
       plans.forEach(function(p){
         var on=p.getAttribute('data-plan')===plan;
         p.classList.toggle('is-active',on);
         p.setAttribute('aria-pressed',on?'true':'false');
       });
-      if(plan==='otp'){
-        planInput.disabled=true;                 /* disabled input is not POSTed -> Shopify adds one-time */
-        if(label)label.textContent='Add One-Time ($70)';
-      }else{
-        planInput.disabled=false;planInput.value='2844491975';
-        if(label)label.textContent='Start My Daily Foundation';
-      }
+      forms.forEach(function(f){
+        var inp=f.querySelector('input[name="selling_plan"]');
+        if(!inp)return;
+        if(otp){inp.disabled=true;}          /* a disabled input is not POSTed -> Shopify adds it one-time */
+        else{inp.disabled=false;inp.value=SUB_PLAN;}
+      });
+      labels.forEach(function(rec){setLabel(rec, otp?'Add One-Time ($70)':null);});
+      if(stickyNow)stickyNow.textContent=otp?'$70':'$63';
+      if(stickySub)stickySub.innerHTML=otp?'one-time':'/order &middot; Save 10%';
+      if(finalNow)finalNow.textContent=otp?'$70':'$63';
+      if(finalUnit)finalUnit.textContent=otp?'one-time purchase':'every 15 days on Subscribe & Save';
+      if(finalSave)finalSave.style.display=otp?'none':'';
     }
     plans.forEach(function(p){p.addEventListener('click',function(){setPlan(p.getAttribute('data-plan'));});});
   })();
